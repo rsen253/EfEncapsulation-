@@ -1,4 +1,4 @@
-﻿namespace MvcSalesApp.Web.Models.Enums
+﻿namespace MvcSalesApp.Domain.Enums
 {
     public enum AddressType
     {

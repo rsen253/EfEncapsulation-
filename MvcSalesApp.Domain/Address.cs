@@ -1,6 +1,6 @@
-﻿using MvcSalesApp.Web.Models.Enums;
+﻿using MvcSalesApp.Domain.Enums;
 
-namespace MvcSalesApp.Web.Models
+namespace MvcSalesApp.Domain
 {
     public class Address
     {

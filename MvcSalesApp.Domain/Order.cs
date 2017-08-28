@@ -1,8 +1,8 @@
-﻿using MvcSalesApp.Web.Models.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using MvcSalesApp.Domain.Enums;
 
-namespace MvcSalesApp.Web.Models
+namespace MvcSalesApp.Domain
 {
     public class Order
     {
