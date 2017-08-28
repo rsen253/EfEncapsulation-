@@ -52,6 +52,7 @@
     <Compile Include="CustomerData.cs" />
     <Compile Include="CustomerWithOrdersData.cs" />
     <Compile Include="OrderSystemContext.cs" />
+    <Compile Include="ProductData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
