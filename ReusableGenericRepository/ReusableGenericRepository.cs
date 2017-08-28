@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace ReusableGenericRepository
 {
@@ -19,6 +21,12 @@ namespace ReusableGenericRepository
         public IEnumerable<TEntity> All()
         {
             return _dbset.AsNoTracking().ToList();
+        }
+
+        public IEnumerable<TEntity> FindBy(Expression<Func<TEntity,bool>> predicate)
+        {
+            IEnumerable<TEntity> result = _dbset.AsNoTracking().Where(predicate).ToList();
+            return result;
         }
 
         public TEntity FindByKey(int? id)
