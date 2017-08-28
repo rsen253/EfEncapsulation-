@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSalesApp.Domain", "MvcSa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSalesApp.Data", "MvcSalesApp.Data\MvcSalesApp.Data.csproj", "{A0EC166A-E9F6-48A0-8433-8296E6A36CB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReusableGenericRepository", "ReusableGenericRepository\ReusableGenericRepository.csproj", "{03F95775-464F-4249-A40A-86C2F32B0D53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A0EC166A-E9F6-48A0-8433-8296E6A36CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0EC166A-E9F6-48A0-8433-8296E6A36CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0EC166A-E9F6-48A0-8433-8296E6A36CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03F95775-464F-4249-A40A-86C2F32B0D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03F95775-464F-4249-A40A-86C2F32B0D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03F95775-464F-4249-A40A-86C2F32B0D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03F95775-464F-4249-A40A-86C2F32B0D53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

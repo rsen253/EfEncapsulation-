@@ -1,21 +1,27 @@
-﻿using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
 using MvcSalesApp.Data;
 using MvcSalesApp.Domain;
+using ReusableGenericRepository;
 
 
 namespace MvcSalesApp.Web.Controllers
 {
     public class CustomersController : Controller
     {
-        private CustomerData  repo = new CustomerData();
+        private GenericRepository<Customer> repo;  
+        //private CustomerData  repo = new CustomerData();
+
+        public CustomersController(GenericRepository<Customer> _repo)
+        {
+            repo = _repo;
+        }
 
         // GET: Customers
         public ActionResult Index()
         {
-            return View(repo.GetAllCustomers());
+            return View(repo.All());
         }
 
         // GET: Customers/Details/5
@@ -25,7 +31,7 @@ namespace MvcSalesApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = repo.FindCustomer(id);
+            Customer customer = repo.FindByKey(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -48,7 +54,7 @@ namespace MvcSalesApp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                repo.AddCustomer(customer);
+                repo.Insert(customer);
                 return RedirectToAction("Index");
             }
 
@@ -62,7 +68,7 @@ namespace MvcSalesApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = repo.FindCustomer(id);
+            Customer customer = repo.FindByKey(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -79,7 +85,7 @@ namespace MvcSalesApp.Web.Controllers
         {
             if (ModelState.IsValid)
             { 
-                repo.UpdateCustomer(customer);
+                repo.Update(customer);
                 return RedirectToAction("Index");
             }
             return View(customer);
@@ -92,7 +98,7 @@ namespace MvcSalesApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = repo.FindCustomer(id);
+            Customer customer = repo.FindByKey(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -105,7 +111,7 @@ namespace MvcSalesApp.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            repo.DeleteCustomer(id);
+            repo.Delete(id);
             return RedirectToAction("Index");
         }
     }
