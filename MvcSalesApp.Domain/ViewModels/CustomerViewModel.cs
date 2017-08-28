@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MvcSalesApp.Web.Models.ViewModels
+namespace MvcSalesApp.Domain.ViewModels
 {
     public class CustomerViewModel
     {

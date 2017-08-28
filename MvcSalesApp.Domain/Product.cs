@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MvcSalesApp.Web.Models
+namespace MvcSalesApp.Domain
 {
     public class Product
     {

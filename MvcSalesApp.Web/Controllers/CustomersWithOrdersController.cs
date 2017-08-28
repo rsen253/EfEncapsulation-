@@ -1,6 +1,6 @@
-﻿using MvcSalesApp.Web.Models;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
+using MvcSalesApp.Data;
 
 namespace MvcSalesApp.Web.Controllers
 {

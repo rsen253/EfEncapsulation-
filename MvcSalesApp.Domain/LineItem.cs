@@ -1,4 +1,4 @@
-﻿namespace MvcSalesApp.Web.Models
+﻿namespace MvcSalesApp.Domain
 {
     public class LineItem
     {

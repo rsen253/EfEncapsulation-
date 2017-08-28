@@ -1,8 +1,8 @@
-﻿using MvcSalesApp.Web.Models.ViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using MvcSalesApp.Domain.ViewModels;
 
-namespace MvcSalesApp.Web.Models
+namespace MvcSalesApp.Data
 {
     public class CustomerWithOrdersData
     {

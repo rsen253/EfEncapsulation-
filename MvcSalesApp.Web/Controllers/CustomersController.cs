@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MvcSalesApp.Web.Models;
+using MvcSalesApp.Data;
+using MvcSalesApp.Domain;
+
 
 namespace MvcSalesApp.Web.Controllers
 {
     public class CustomersController : Controller
     {
-        private OrderSystemContext db = new OrderSystemContext();
+        private CustomerData  repo = new CustomerData();
 
         // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(repo.GetAllCustomers());
         }
 
         // GET: Customers/Details/5
@@ -27,7 +25,7 @@ namespace MvcSalesApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = repo.FindCustomer(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -50,8 +48,7 @@ namespace MvcSalesApp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
-                db.SaveChanges();
+                repo.AddCustomer(customer);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +62,7 @@ namespace MvcSalesApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = repo.FindCustomer(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -81,9 +78,8 @@ namespace MvcSalesApp.Web.Controllers
         public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,DateOfBirth")] Customer customer)
         {
             if (ModelState.IsValid)
-            {
-                db.Entry(customer).State = EntityState.Modified;
-                db.SaveChanges();
+            { 
+                repo.UpdateCustomer(customer);
                 return RedirectToAction("Index");
             }
             return View(customer);
@@ -96,7 +92,7 @@ namespace MvcSalesApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = repo.FindCustomer(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -109,19 +105,8 @@ namespace MvcSalesApp.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
-            db.SaveChanges();
+            repo.DeleteCustomer(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

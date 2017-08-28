@@ -1,9 +1,7 @@
-﻿using MvcSalesApp.Web.Models.Enums;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using MvcSalesApp.Domain;
 
-namespace MvcSalesApp.Web.Models
+namespace MvcSalesApp.Data
 {
     public class OrderSystemContext : DbContext
     {
