@@ -225,9 +225,13 @@
       <Project>{2be265b9-4ba4-4903-991a-6657c911c0ab}</Project>
       <Name>MvcSalesApp.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ReusableGenericRepository\ReusableGenericRepository.csproj">
-      <Project>{03f95775-464f-4249-a40a-86c2f32b0d53}</Project>
-      <Name>ReusableGenericRepository</Name>
+    <ProjectReference Include="..\SharedKernel.Data\SharedKernel.Data.csproj">
+      <Project>{c6c9d6e4-6915-4ffd-817d-290f54271236}</Project>
+      <Name>SharedKernel.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedKernel\SharedKernel.csproj">
+      <Project>{ca8e9c26-5432-41a6-8aae-0053869a3417}</Project>
+      <Name>SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

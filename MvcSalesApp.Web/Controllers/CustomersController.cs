@@ -1,17 +1,17 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
 using MvcSalesApp.Data;
 using MvcSalesApp.Domain;
-using ReusableGenericRepository;
+using SharedKernel.Data;
 
 
 namespace MvcSalesApp.Web.Controllers
 {
     public class CustomersController : Controller
     {
-        private GenericRepository<Customer> repo;  
-        //private CustomerData  repo = new CustomerData();
+        private GenericRepository<Customer> repo;
 
         public CustomersController(GenericRepository<Customer> _repo)
         {
@@ -21,6 +21,8 @@ namespace MvcSalesApp.Web.Controllers
         // GET: Customers
         public ActionResult Index()
         {
+            var date = new DateTime(2001,1,1);
+            repo.FindByInclude(c => c.LastName.StartsWith("L"), c => c.Orders);
             return View(repo.All());
         }
 

@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace ReusableGenericRepository
 {
-
+    //This repo is not being used 
     public class GenericRepository<TEntity> where TEntity : class
     {
         internal DbContext _context;
